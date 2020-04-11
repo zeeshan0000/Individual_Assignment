@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Online Book Store') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -25,7 +25,8 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    <!-- {{ config('app.name', 'Online Book Store') }} -->
+                    Online Book Store
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -74,7 +75,29 @@
         </nav>
 
         <main class="py-4">
+                    @auth
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <a href="">Posts</a>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <a href="/categories">Categories</a>
+                                    </li>
+                                </ul>      
+                            </div>
+                            
+                            <div class="col-md-8">
+                                @yield('content')
+                            </div>
+                        </div>
+                    </div>
+            @else
             @yield('content')
+            @endauth
         </main>
     </div>
 </body>
