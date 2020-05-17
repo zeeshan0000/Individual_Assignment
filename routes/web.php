@@ -24,3 +24,5 @@ Route::resource('categories', 'CategoriesController');
 
 
 Route::get('users', 'UsersController@index')->name('users.index');
+Route::get('users/profile', 'UsersController@edit')->name('users.edit-profile');
+Route::put('users/profile', 'UsersController@update')->name('users.update-profile');
