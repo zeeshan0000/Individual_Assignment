@@ -20,6 +20,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/add-to-cart/{product}', 'CartController@add')->name('cart.add')->middleware('auth');
+
+Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('auth');
+Route::get('/cart/destroy/{itemId}', 'CartController@destroy')->name('cart.destroy')->middleware('auth');
+
 Route::resource('categories', 'CategoriesController');
 
 

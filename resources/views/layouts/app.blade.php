@@ -48,6 +48,9 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('cart.index') }}">Cart</a>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -113,10 +116,6 @@
                                     </a>
                                 </li>
                            @endif
-
-                            <li class="list-group-item">
-                                <a href="">Posts</a>
-                            </li>
 
                             <li class="list-group-item">
                                 <a href="{{ route('categories.index') }}">Categories</a>
